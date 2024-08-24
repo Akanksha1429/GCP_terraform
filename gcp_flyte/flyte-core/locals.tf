@@ -5,7 +5,7 @@ locals {
   environment            = "gcp" #Change to match your needs
   project_id             = "pure-beach-428912-m8"
   project_number         = "186944519591"
-  dns-domain             = "cluster.local." #Change to yo
+  dns-domain             = "pure-beach-428912-m8-zone.example.com." #Change to your domain name
   region                 = "us-central1" #Change to your GCP region
   
   #You must replace this email address with your own.
