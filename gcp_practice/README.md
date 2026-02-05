@@ -104,35 +104,21 @@ gcloud compute instances create VM_NAME \
 ┌──────────────────────────────┐
 │        Load Balancing        │
 └──────────────────────────────┘
-Purpose
+### Purpose
+    - Balances traffic between servers
 
-Balances traffic between servers
+### Types
+    - Application Load Balancer → HTTP traffic
+    - Network Load Balancer → TCP / UDP traffic
 
-Types
+### Exposure
+    - Public Facing LB : Routes requests from clients to targets
+    - Internal LB : Used when frontend communicates with backend
 
-Application Load Balancer → HTTP traffic
+### Deployment Scope
+    - Global Region Deployment: Servers deployed across multiple regions
+    - Single Region Deployment: Traffic retained in one region
 
-Network Load Balancer → TCP / UDP traffic
-
-Exposure
-
-Public Facing LB
-
-Routes requests from clients to targets
-
-Internal LB
-
-Used when frontend communicates with backend
-
-Deployment Scope
-
-Global Region Deployment
-
-Servers deployed across multiple regions
-
-Single Region Deployment
-
-Traffic retained in one region
 Client
    │
    ▼
@@ -141,25 +127,20 @@ Load Balancer
    ▼
 Backend Servers
 
-⚙️ Managed Instance Group (MIG)
+## ⚙️ Managed Instance Group (MIG)
 ┌──────────────────────────────┐
 │   Managed Instance Group     │
 └──────────────────────────────┘
-Workflow
+### Workflow
+    - Create an Instance Template with VM configurations
+    - Create a Managed Instance Group
+        - Stateless (default)
+        - Stateful (for DBs)
 
-Create an Instance Template with VM configurations
+### MIG deploys:
+    - Minimum VMs initially
+    - Scales up to maximum when required
 
-Create a Managed Instance Group
-
-Stateless (default)
-
-Stateful (for DBs)
-
-MIG deploys:
-
-Minimum VMs initially
-
-Scales up to maximum when required
 [ Instance Template ]
           │
           ▼
@@ -167,75 +148,56 @@ Scales up to maximum when required
           │
       Auto Scaling
 
-🟢 High Availability
+### 🟢 High Availability
 ┌──────────────────────────────┐
 │      High Availability       │
 └──────────────────────────────┘
 
-🌐 Virtual Private Cloud (VPC)
+### 🌐 Virtual Private Cloud (VPC)
 ┌──────────────────────────────┐
 │              VPC             │
 └──────────────────────────────┘
-Definition
+## Definition
+    - Isolated environment within the cloud
+    - Created using CIDR
+    - CIDR defines:
+        - Number of IP addresses
+        - Size of the VPC
 
-Isolated environment within the cloud
+## Components of VPC
+# 🔹 Subnets : Size decided by CIDR
 
-Created using CIDR
+    - Public Subnet
+        - Connected to Internet Gateway (IGW)
+        - Frontends of Load Balancers
+        - Publicly accessible components
 
-CIDR defines:
+    - Private Subnet
+        - Backends
+        - Databases
 
-Number of IP addresses
-
-Size of the VPC
-
-Components of VPC
-🔹 Subnets
-
-Size decided by CIDR
-
-Public Subnet
-
-Connected to Internet Gateway (IGW)
-
-Frontends of Load Balancers
-
-Publicly accessible components
-
-Private Subnet
-
-Backends
-
-Databases
 Internet
    │
 [ IGW ]
    │
 Public Subnet ───► Private Subnet
 
-🔹 Routes
-
+# 🔹 Routes
 Define access within and outside subnets
 
-🔹 Route Tables
-
+# 🔹 Route Tables
 Explain traffic direction
 
-🔹 Firewall
+# 🔹 Firewall
+- Rules attached to VPC using Tags
+- Controls application access
 
-Rules attached to VPC using Tags
-
-Controls application access
-
-🔹 NAT (Network Address Translation)
-
-Enables private subnet applications to access the internet
-
-Hides original private IP from users
+# 🔹 NAT (Network Address Translation)
+- Enables private subnet applications to access the internet
+- Hides original private IP from users
 
 Private App → NAT → Internet
 
-🔹 VPN
-
-Integrates VPN with VPC
-
-Provides authenticated users secure access to VPC
+# 🔹 VPN
+- Integrates VPN with VPC
+- Provides authenticated users secure access to VPC
