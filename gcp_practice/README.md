@@ -3,9 +3,6 @@
 ---
 
 ## 🔐 Identity and Access Management (IAM)
-┌──────────────────────────────┐
-│ IAM │
-└──────────────────────────────┘
  
 ### Purpose
 - Responsible for **Authentication** and **Authorization**
@@ -20,20 +17,13 @@
 
 ### Policy Binding
 ➡️ Users are **bound to roles using IAM policies**
-[ User / Group / SA ]
-│
-▼
-[ Role ]
-│
-▼
-[ Permissions ]
+graph TD
+    A[User / Group / Service Account] --> B[Role]
+    B --> C[Permissions]
 
 ---
 
-## 🖥️ Compute Engine
-┌──────────────────────────────┐
-│ Compute Engine │
-└──────────────────────────────┘
+## 🖥️  Compute Engine
 
 ### Features
 - Compute resources:
@@ -57,9 +47,7 @@ gcloud compute instances create VM_NAME \
 - SSH can be used to connect to the VM instance
 
 ## 💾 Cloud Storage Services
-┌──────────────────────────────┐
-│      Storage Services        │
-└──────────────────────────────┘
+
 1️⃣ Google Cloud Storage (GCS)
 - Used for Object Storage
 - Examples: Logs, Backups, Artifacts
@@ -101,9 +89,7 @@ gcloud compute instances create VM_NAME \
 ### RBAC : Can be mainted on bucket and object level.
 
 ## 🌐 Load Balancing: 
-┌──────────────────────────────┐
-│        Load Balancing        │
-└──────────────────────────────┘
+
 ### Purpose
     - Balances traffic between servers
 
@@ -128,9 +114,7 @@ Load Balancer
 Backend Servers
 
 ## ⚙️ Managed Instance Group (MIG)
-┌──────────────────────────────┐
-│   Managed Instance Group     │
-└──────────────────────────────┘
+
 ### Workflow
     - Create an Instance Template with VM configurations
     - Create a Managed Instance Group
@@ -149,14 +133,9 @@ Backend Servers
       Auto Scaling
 
 ### 🟢 High Availability
-┌──────────────────────────────┐
-│      High Availability       │
-└──────────────────────────────┘
 
 ### 🌐 Virtual Private Cloud (VPC)
-┌──────────────────────────────┐
-│              VPC             │
-└──────────────────────────────┘
+
 ## Definition
     - Isolated environment within the cloud
     - Created using CIDR
@@ -165,7 +144,7 @@ Backend Servers
         - Size of the VPC
 
 ## Components of VPC
-# 🔹 Subnets : Size decided by CIDR
+### 🔹 Subnets : Size decided by CIDR
 
     - Public Subnet
         - Connected to Internet Gateway (IGW)
@@ -182,22 +161,22 @@ Internet
    │
 Public Subnet ───► Private Subnet
 
-# 🔹 Routes
+### 🔹 Routes
 Define access within and outside subnets
 
-# 🔹 Route Tables
+### 🔹 Route Tables
 Explain traffic direction
 
-# 🔹 Firewall
+### 🔹 Firewall
 - Rules attached to VPC using Tags
 - Controls application access
 
-# 🔹 NAT (Network Address Translation)
+### 🔹 NAT (Network Address Translation)
 - Enables private subnet applications to access the internet
 - Hides original private IP from users
 
 Private App → NAT → Internet
 
-# 🔹 VPN
+### 🔹 VPN
 - Integrates VPN with VPC
 - Provides authenticated users secure access to VPC
