@@ -17,7 +17,7 @@
 
 ### Policy Binding
 ➡️ Users are **bound to roles using IAM policies**
-graph TD
+
     A[User / Group / Service Account] --> B[Role]
     B --> C[Permissions]
 
