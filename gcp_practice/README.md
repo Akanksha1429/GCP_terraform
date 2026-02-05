@@ -105,6 +105,12 @@ gcloud compute instances create VM_NAME \
     - Global Region Deployment: Servers deployed across multiple regions
     - Single Region Deployment: Traffic retained in one region
 
+    Client --> LoadBalancer
+    LoadBalancer --> Server1
+    LoadBalancer --> Server2
+    LoadBalancer --> Server3
+
+
 Client
    │
    ▼
