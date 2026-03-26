@@ -19,3 +19,5 @@
 ### Step 3 Create Firewall Rule : 
 - Create a firewall rule to perform health checks
 ![health checks](</images/allow_health_checks_8080.png>)
+- Create another firewall rule for application traffic.
+![application traffic](</images/allow-proxy-only-8080.png>)
