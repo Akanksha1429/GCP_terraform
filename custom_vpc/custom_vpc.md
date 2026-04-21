@@ -13,7 +13,7 @@ Reference : https://github.com/iam-veeramalla/gcp-zero-to-hero/tree/main/day-08
     - Name: subnet-public, IP range: 10.10.10.0/24
     - Name: subnet-app, IP range: 10.10.20.0/24
     - Click Create.
-
+![subnet](</images/subnet.png>)
 ### 2. Proxy-only subnet (required for Regional External HTTP(S) LB)
 - VPC networks → prod-vpc → Subnetworks → Create subnetwork
 - Name: subnet-proxy-only
