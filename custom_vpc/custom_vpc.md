@@ -9,10 +9,10 @@ Reference : https://github.com/iam-veeramalla/gcp-zero-to-hero/tree/main/day-08
 - Name of the VPC
 - Create custom app-subnet and nat-subnet(name, region)
 - Subnet creation mode: Custom
-    Add subnets (same Region you chose):
-    Name: subnet-public, IP range: 10.10.10.0/24
-    Name: subnet-app, IP range: 10.10.20.0/24
-    Click Create.
+    - Add subnets (same Region you chose):
+    - Name: subnet-public, IP range: 10.10.10.0/24
+    - Name: subnet-app, IP range: 10.10.20.0/24
+    - Click Create.
 
 ### 2. Proxy-only subnet (required for Regional External HTTP(S) LB)
 - VPC networks → prod-vpc → Subnetworks → Create subnetwork
